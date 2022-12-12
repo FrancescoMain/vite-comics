@@ -81,12 +81,13 @@ export default {
 @use '../styles/partials/variable' as *;
 
 header {
+    background-color: white;
     height: 120px;
     @include center ();
 
     .container {
         @include center (space);
-        width: 66%;
+        width: $mainSize;
         height: 100%;
 
         .logo {
