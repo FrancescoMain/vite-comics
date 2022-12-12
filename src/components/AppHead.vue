@@ -1,7 +1,60 @@
 <script >
 export default {
+    data() {
+        return {
+            links: [
+                {
+                    title: 'CHARACTERS',
+                    link: '#'
+                },
+                {
+                    title: 'COMICS',
+                    link: '#'
+                },
+                {
+                    title: 'MOVIES',
+                    link: '#'
+                },
+                {
+                    title: 'TV',
+                    link: '#'
+                },
+                {
+                    title: 'GAMES',
+                    link: '#'
+                },
+                {
+                    title: 'COLLECTIBLES',
+                    link: '#'
+                },
+                {
+                    title: 'VIDEOS',
+                    link: '#'
+                },
+                {
+                    title: 'FANS',
+                    link: '#'
+                },
+                {
+                    title: 'NEWS',
+                    link: '#'
+                },
+                {
+                    title: 'SHOP',
+                    link: '#'
+                },
+            ]
 
-}
+        };
+
+    },
+    methods: {
+        getImageUrl: function (imgPath) {
+            return new URL(imgPath, import.meta.url).href;
+        }
+    }
+
+};
 </script>
 
 <template>
@@ -9,39 +62,12 @@ export default {
     <header>
         <div class="container">
             <div class="logo">
-                <img src="../../public/img/dc-logo.png" alt="">
+                <img :src="getImageUrl('../../public/img/dc-logo.png')" alt="">
             </div>
             <nav>
                 <ul>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
-                    </li>
-                    <li>
-                        <a href="">Link</a>
+                    <li v-for="(link, index) in links" :key="index">
+                        <a href="link.link">{{ link.title }}</a>
                     </li>
                 </ul>
             </nav>
@@ -64,7 +90,6 @@ header {
         height: 100%;
 
         .logo {
-
             @include center ();
             height: 100%;
 
@@ -74,8 +99,7 @@ header {
         }
 
         nav {
-
-            width: 58%;
+            width: 70%;
             height: 100%;
 
             ul {
@@ -85,8 +109,10 @@ header {
                 height: 100%;
 
                 li {
-                    width: calc(100% / 10);
+                    padding: 0 20px;
                     height: 100%;
+                    font-size: 0.7rem;
+                    font-weight: 600;
                     @include center ();
 
 
@@ -97,6 +123,7 @@ header {
                     &:active,
                     &:hover {
                         border-bottom: $primary 4px solid;
+                        cursor: pointer;
 
                         a {
                             color: $primary;
