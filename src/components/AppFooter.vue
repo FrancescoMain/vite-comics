@@ -130,6 +130,25 @@ export default {
 
                 ]
             },
+
+            footerImgs: [
+                {
+                    img: this.getImageUrl('../../public/img/footer-facebook.png'),
+                },
+                {
+                    img: this.getImageUrl('../../public/img/footer-periscope.png'),
+                },
+                {
+                    img: this.getImageUrl('../../public/img/footer-pinterest.png'),
+                },
+                {
+                    img: this.getImageUrl('../../public/img/footer-twitter.png'),
+                },
+                {
+                    img: this.getImageUrl('../../public/img/footer-youtube.png'),
+                },
+
+            ]
         };
 
     },
@@ -177,7 +196,19 @@ export default {
                 </div>
             </div>
         </div>
-        <div></div>
+        <div class="bottom-container">
+            <div class="bottom">
+                <div class="button">
+                    <h3>SING - UP NOW</h3>
+                </div>
+                <div class="social">
+                    <h3>FOLLOW US</h3>
+                    <img v-for="image, index in footerImgs" :key="index" :src="image.img" alt="">
+                </div>
+            </div>
+
+        </div>
+
     </footer>
 
 </template>
@@ -239,5 +270,37 @@ export default {
 
 
 
+}
+
+.bottom-container {
+
+    background-color: $frth;
+    @include center ();
+
+    .bottom {
+        width: calc($mainSize);
+        height: 100px;
+        @include center (horizontal);
+        justify-content: space-between;
+
+        .button {
+            height: 60px;
+            border: $primary solid 2px;
+            width: 180px;
+            color: $secondary;
+            @include center ();
+        }
+
+
+    }
+
+    .social {
+        color: $primary;
+        @include center ();
+
+        img {
+            margin-left: 15px;
+        }
+    }
 }
 </style>
