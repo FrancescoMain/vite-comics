@@ -81,7 +81,7 @@ export default {
 @use '../styles/partials/variable' as *;
 
 header {
-    background-color: white;
+    background-color: $secondary;
     height: 120px;
     @include center ();
 
