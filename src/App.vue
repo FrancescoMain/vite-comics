@@ -1,12 +1,14 @@
 <script>
 import AppHead from './components/AppHead.vue'
 import AppCards from './components/AppCards.vue'
+import AppFooter from './components/AppFooter.vue'
 
 
 export default {
   components: {
     AppHead,
-    AppCards
+    AppCards,
+    AppFooter
   },
 }
 </script>
@@ -17,6 +19,7 @@ export default {
     <h1>CONTENT GOES HERE</h1>
   </main>
   <AppCards />
+  <AppFooter />
 </template>
 
 <style lang="scss">
