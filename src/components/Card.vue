@@ -1,6 +1,9 @@
 <script >
 export default {
-
+    props: {
+        thumb: String,
+        series: String,
+    }
 
 };
 </script>
@@ -8,12 +11,14 @@ export default {
 <template>
 
     <li>
-        <div>
-            <img src="https://www.dccomics.com/sites/default/files/styles/covers192x291/public/comic-covers/2018/09/AC1000_DLX_162-001_HD_5ba13723281ab0.37845353.jpg?itok=ZsI-C5eX"
-                alt="">
+        <div class="wrapper">
+            <div class="img-container">
+                <img :src="thumb" alt="">
+            </div>
+
+            <h5>{{ series }}</h5>
         </div>
 
-        <h5>ACTION COMICS</h5>
     </li>
 
 </template>
@@ -22,16 +27,21 @@ export default {
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variable' as *;
 
-div {
-    height: 100px;
-    width: 100px;
-    overflow: hidden;
+li {
+    width: calc(100% / 5 - 42px);
+    @include center ();
 
-}
+    .img-container {
+        height: 200px;
+        width: 200px;
+        overflow: hidden;
+        margin-bottom: 30px;
+    }
 
-h5 {
-    color: $secondary;
-    font-size: 0.5rem;
-    margin: 10px 0;
+    h5 {
+        color: $secondary;
+        font-size: 0.9rem;
+        margin: 10px 0;
+    }
 }
 </style>
