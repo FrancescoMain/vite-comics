@@ -1,5 +1,8 @@
 <script >
 export default {
+    props: {
+        text: String,
+    },
     methods: {
         getImageUrl: function (imgPath) {
             return new URL(`../../public/img/${imgPath}`, import.meta.url).href;
@@ -11,7 +14,7 @@ export default {
 
 <template>
 
-    <button class="button">CURRENT SERIES</button>
+    <button class="button">{{ text }}</button>
 
 </template>
 
