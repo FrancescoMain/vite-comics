@@ -1,9 +1,11 @@
 <script >
 import Jumbo from './Jumbo.vue'
+import JumboButton from './JumboButton.vue'
 
 export default {
     components: {
-        Jumbo
+        Jumbo,
+        JumboButton
     },
     data() {
         return {
@@ -24,10 +26,26 @@ export default {
 <template>
 
     <Jumbo />
+    <div class="body-container">
+        <JumboButton class="button" />
+    </div>
+
 
 </template>
 
 <style lang="scss" scoped>
 @use '../styles/partials/mixins' as *;
 @use '../styles/partials/variable' as *;
+
+
+.body-container {
+    width: $mainSize;
+    @include center (space);
+
+    .button {
+        position: absolute;
+        top: 500px;
+        left: 300px;
+    }
+}
 </style>
