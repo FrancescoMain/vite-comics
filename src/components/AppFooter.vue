@@ -223,7 +223,6 @@ export default {
     overflow: hidden;
     background-size: cover;
     height: 450px;
-    filter: grayscale(100);
     @include center ();
 
     .sizing {
