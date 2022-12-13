@@ -13,7 +13,8 @@ export default {
     },
     data() {
         return {
-            myJson: json
+            myJson: json,
+            textButtons: ["CURRENT SERIES", "LOAD MORE"]
 
         };
 
@@ -21,6 +22,7 @@ export default {
     methods: {
         getImageUrl: function (imgPath) {
             return new URL('../../public/img/${imgPath}');
+
         }
     }
 
@@ -32,10 +34,14 @@ export default {
     <Jumbo />
     <div class="body-container">
         <div class="wrapper">
-            <JumboButton class="button" />
+            <JumboButton class="button" :text="textButtons[0]" />
             <ul>
                 <Card v-for="(element, index) in myJson" :key="index" :thumb="element.thumb" :series="element.series" />
             </ul>
+            <div class="button-container">
+                <JumboButton class="second" :text="textButtons[1]" />
+            </div>
+
         </div>
 
     </div>
@@ -64,6 +70,17 @@ export default {
             margin: 40px 0;
             @include center ();
             flex-wrap: wrap;
+        }
+
+        .second {
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+        .button-container {
+            @include center ();
+            margin-bottom: 20px;
         }
     }
 }
