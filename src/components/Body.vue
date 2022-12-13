@@ -1,11 +1,14 @@
 <script >
 import Jumbo from './Jumbo.vue'
 import JumboButton from './JumboButton.vue'
+import Card from './Card.vue'
+
 
 export default {
     components: {
         Jumbo,
-        JumboButton
+        JumboButton,
+        Card
     },
     data() {
         return {
@@ -27,7 +30,13 @@ export default {
 
     <Jumbo />
     <div class="body-container">
-        <JumboButton class="button" />
+        <div class="wrapper">
+            <JumboButton class="button" />
+            <ul>
+                <Card />
+            </ul>
+        </div>
+
     </div>
 
 
@@ -39,13 +48,20 @@ export default {
 
 
 .body-container {
-    width: $mainSize;
-    @include center (space);
+    @include center ();
 
-    .button {
-        position: absolute;
-        top: 500px;
-        left: 300px;
+    .wrapper {
+        width: $mainSize;
+
+        .button {
+            position: absolute;
+            top: 500px;
+            left: 300px;
+        }
+
+        ul {
+            margin-top: 40px;
+        }
     }
 }
 </style>
